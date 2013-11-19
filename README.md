@@ -1,4 +1,4 @@
 Music-Duration
 ==============
 
-Add 32nd and 64th durations ro MIDI-Perl
+Add 32nd and 64th durations to MIDI-Perl
