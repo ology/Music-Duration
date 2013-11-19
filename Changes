@@ -1,0 +1,13 @@
+Revision history for Music-Duration
+
+{{$NEXT}}
+
+0.02      2013-02-05 19:30:37 America/Los_Angeles
+    - Removed MIDI-Perl computational typo fix after resolving.
+    - Made tests for each added duration.
+
+0.01 2012.11.06
+    - Added to and corrected MIDI::Simple::Length.
+
+0.00_1 2012.11.5
+    - Unleashed by Dist::Zilla!
