@@ -1,7 +1,7 @@
 package Music::Duration;
 # ABSTRACT: Thirtysecond and sixtyfourth notes
 
-our $VERSION = '0.02';
+our $VERSION = '0.0201';
 use strict;
 use warnings;
 
