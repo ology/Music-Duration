@@ -1,7 +1,7 @@
 package Music::Duration;
-# ABSTRACT: Thirtysecond and sixtyfourth notes
+# ABSTRACT: Add useful note lengths to MIDI-Perl
 
-our $VERSION = '0.0201';
+our $VERSION = '0.03';
 use strict;
 use warnings;
 
@@ -9,13 +9,22 @@ use MIDI::Simple;
 
 =head1 NAME
 
-Music::Duration - Thirtysecond and sixtyfourth notes
+Music::Duration - Add useful note lengths to MIDI-Perl
 
 =head1 SYNOPSIS
 
-  perl -MMIDI::Simple -MData::Dumper -e'print Dumper \%MIDI::Simple::Length'
+  # Compare:
+  > perl -MMIDI::Simple -MData::Dumper -e'print Dumper \%MIDI::Simple::Length'
+  > perl -MMusic::Duration -MData::Dumper -e'print Dumper \%MIDI::Simple::Length'
 
-  perl -MMusic::Duration -MData::Dumper -e'print Dumper \%MIDI::Simple::Length'
+  # In a program:
+  use MIDI::Simple;
+  use Music::Duration;
+  Music::Duration::fractional('z', 5);
+  new_score();
+  patch_change(1, 33);          # Jazz kit
+  n('zsn', 'n38') for 1 .. 5;   # Snare sixteenth quintuplet
+  n('qn', 'n38');
 
 =head1 DESCRIPTION
 
