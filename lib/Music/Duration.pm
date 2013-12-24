@@ -25,10 +25,10 @@ These are 32nd: y, dy, ddy, ty and 64th: x, dx, ddx, tx.
 =cut
 
 {
-    # Set the initial duration.
-    my $last = 's'; # sixteenth
+    # Set the initial duration to one below 32nd,
+    my $last = 's'; # ..which is a sixteenth.
 
-    # Add 32nd and 64th
+    # Add 32nd and 64th as y and x.
     for my $duration (qw( y x )) {
         # Create a MIDI::Simple format note identifier.
         my $n = $duration . 'n';
@@ -48,6 +48,18 @@ These are 32nd: y, dy, ddy, ty and 64th: x, dx, ddx, tx.
         # Increment the last duration seen.
         $last = $duration;
     }
+}
+
+=head1 FUNCTIONS
+
+=head2 fractional()
+
+Add a fractional duration-division that is not "by half" to the L<MIDI::Simple>
+C<Length> hash.
+
+=cut
+
+sub fractional {
 }
 
 1;
