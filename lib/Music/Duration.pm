@@ -54,12 +54,15 @@ These are 32nd: y, dy, ddy, ty and 64th: x, dx, ddx, tx.
 
 =head2 fractional()
 
-Add a fractional duration-division that is not "by half" to the L<MIDI::Simple>
-C<Length> hash.
+Add a fractional duration-division based on the quarter note, to the
+L<MIDI::Simple> C<Length> hash.
 
 =cut
 
 sub fractional {
+    my ($name, $factor) = @_;
+    # Add the note duration to the MIDI::Simple::Length hash.
+    $MIDI::Simple::Length{$name . 'n'} = $MIDI::Simple::Length{qn} / $factor;
 }
 
 1;
