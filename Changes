@@ -1,6 +1,9 @@
 Revision history for Music-Duration
 
 {{$NEXT}}
+    - Improved abstract
+
+0.03      2013-12-24 01:24:45 America/Los_Angeles
     - Enabled fractional length assignment.
 
 0.0201    2013-11-19 06:19:11 America/Los_Angeles

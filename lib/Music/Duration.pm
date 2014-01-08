@@ -1,5 +1,5 @@
 package Music::Duration;
-# ABSTRACT: Add useful note lengths to MIDI-Perl
+# ABSTRACT: Add 32nd, 64th & odd fractional durations to MIDI-Perl
 
 our $VERSION = '0.03';
 use strict;
@@ -9,7 +9,7 @@ use MIDI::Simple;
 
 =head1 NAME
 
-Music::Duration - Add useful note lengths to MIDI-Perl
+Music::Duration - Add 32nd, 64th & odd fractional durations to MIDI-Perl
 
 =head1 SYNOPSIS
 
