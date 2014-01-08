@@ -28,8 +28,11 @@ Music::Duration - Add 32nd, 64th & odd fractional durations to MIDI-Perl
 
 =head1 DESCRIPTION
 
-This module adds thirtysecond and sixtyfourth note divisions to L<MIDI::Simple>.
-These are 32nd: y, dy, ddy, ty and 64th: x, dx, ddx, tx.
+This module adds thirty-second and sixty-fourth note divisions to
+L<MIDI::Simple>.  (These are 32nd: y, dy, ddy, ty and 64th: x, dx, ddx, tx.)
+
+Also, this module allows the addition of non-standard note divisions with the
+<fractional> function, below.
 
 =cut
 
@@ -68,7 +71,8 @@ These are 32nd: y, dy, ddy, ty and 64th: x, dx, ddx, tx.
 Add a fractional duration-division for each note, to the L<MIDI::Simple>
 C<Length> hash.
 
-In the example above, we add z-notes, or 5th quarter note divisions
+In the example above, we add 5th note divisions called "z-notes" to the existing
+lengths.
 
 =cut
 
@@ -78,7 +82,9 @@ sub fractional {
 
     # Add a named factor for each note value.
     for my $n (keys %MIDI::Simple::Length) {
+        # Skip durations longer than a single note.
         next if length $n > 2;
+        # Add the fractional note value to the Lengths.
         $MIDI::Simple::Length{$name . $n} = $MIDI::Simple::Length{$n} / $factor;
     }
 }
