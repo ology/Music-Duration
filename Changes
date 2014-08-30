@@ -2,6 +2,7 @@ Revision history for Music-Duration
 
 {{$NEXT}}
     - Improved abstract
+    - Fixed POD
 
 0.03      2013-12-24 01:24:45 America/Los_Angeles
     - Enabled fractional length assignment.
