@@ -28,7 +28,7 @@ This module adds thirty-second and sixty-fourth note divisions to
 L<MIDI::Simple>.  (These are 32nd: y, dy, ddy, ty and 64th: x, dx, ddx, tx.)
 
 Also, this module allows the addition of non-standard note divisions with the
-<fractional> function, below.
+B<fractional> function, below.
 
 =cut
 
