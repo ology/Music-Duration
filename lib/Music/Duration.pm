@@ -1,4 +1,5 @@
 package Music::Duration;
+
 # ABSTRACT: Add 32nd, 64th & odd fractional durations to MIDI-Perl
 
 our $VERSION = '0.0301';
@@ -77,6 +78,7 @@ sub fractional {
     my ($name, $factor) = @_;
 
     # Add a named factor for each note value.
+
     for my $n (keys %MIDI::Simple::Length) {
         # Skip durations longer than a single note.
         next if length $n > 2;
