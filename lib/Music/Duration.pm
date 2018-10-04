@@ -1,8 +1,8 @@
 package Music::Duration;
 
-# ABSTRACT: Add 32nd, 64th & odd fractional durations to MIDI-Perl
+# ABSTRACT: Add 32nd, 64th, fractional and tuple durations to MIDI-Perl
 
-our $VERSION = '0.0501';
+our $VERSION = '0.0502';
 use strict;
 use warnings;
 
@@ -71,8 +71,8 @@ hash.
 
 For the example of 5 divisions, this means that a whole note is 5 beats long.
 The duration for each division is "half as long as the last."  So a half note is
-2 beats long, and a quarter note is, you guessed it - 1.  See the distribution
-test for the full breakdown.
+2.5 beats long, and a quarter note is, you guessed it - 1.25.  See the
+distribution test for the full breakdown.
 
 =cut
 
