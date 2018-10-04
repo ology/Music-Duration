@@ -2,7 +2,7 @@ package Music::Duration;
 
 # ABSTRACT: Add 32nd, 64th & odd fractional durations to MIDI-Perl
 
-our $VERSION = '0.0301';
+our $VERSION = '0.0400';
 use strict;
 use warnings;
 
