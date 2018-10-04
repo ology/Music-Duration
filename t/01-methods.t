@@ -5,7 +5,7 @@ use warnings;
 use Test::More;
 
 use_ok 'Music::Duration';
-use Data::Dumper;$Data::Dumper::Sortkeys=1;warn Dumper\%MIDI::Simple::Length;exit;
+#use Data::Dumper;$Data::Dumper::Sortkeys=1;warn Dumper\%MIDI::Simple::Length;exit;
 
 my %expected = (
     # 32nd
