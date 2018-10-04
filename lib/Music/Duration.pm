@@ -95,12 +95,14 @@ C<Length> hash.
 
 Musically, this creates a "cluster" of notes in place of the given B<duration>.
 
-So instead of a whole note of four beats, we instead play 5 notes.
+So instead of a whole note of four beats, we instead play 5 beats.  A triplet is
+a 3-tuple.
 
 =cut
 
 sub tuple {
     my ( $duration, $name, $factor ) = @_;
+    $MIDI::Simple::Length{ $name . $duration } = $MIDI::Simple::Length{$duration} / $factor
 }
 
 1;
