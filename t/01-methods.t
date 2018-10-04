@@ -51,4 +51,8 @@ for my $i ( keys %expected ) {
     is sprintf( '%.4f', $MIDI::Simple::Length{$i} ), $expected{$i}, "$i 5";
 }
 
+Music::Duration::tuple( 'wn', 'z', 5 );
+my $expected = 4 / 5;
+is $MIDI::Simple::Length{zwn}, $expected, 'zwn 5-tuple';
+
 done_testing();
