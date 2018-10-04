@@ -2,7 +2,7 @@ package Music::Duration;
 
 # ABSTRACT: Add 32nd, 64th & odd fractional durations to MIDI-Perl
 
-our $VERSION = '0.0500';
+our $VERSION = '0.0501';
 use strict;
 use warnings;
 
@@ -19,7 +19,9 @@ use MIDI::Simple;
   use Music::Duration;
   Music::Duration::fractional('z', 5);
   # Create and set up a new_score, then for example:
-  n('zsn', 'n38') for 1 .. 5;   # Add a snare sixteenth quintuplet
+  n('zsn', 'n38') for 1 .. 5;
+  Music::Duration::tuple( 'qn', 'z', 5 );
+  n('zqn', 'n38') for 1 .. 5;
 
 =head1 DESCRIPTION
 
@@ -27,7 +29,7 @@ This module adds thirty-second and sixty-fourth note divisions to
 L<MIDI::Simple>.  (These are 32nd: y, dy, ddy, ty and 64th: x, dx, ddx, tx.)
 
 Also, this module allows the addition of non-standard note divisions with the
-B<fractional> function, detailed below.
+B<fractional()> and B<tuple()> functions, detailed below.
 
 =cut
 
