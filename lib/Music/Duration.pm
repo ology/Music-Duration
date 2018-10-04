@@ -36,7 +36,7 @@ B<fractional> function, detailed below.
     my $last = 's'; # ..which is a sixteenth.
 
     # Add 32nd and 64th as y and x.
-    for my $duration (qw( y x )) {
+    for my $duration ( qw( y x ) ) {
         # Create a MIDI::Simple format note identifier.
         my $n = $duration . 'n';
 
@@ -61,7 +61,7 @@ B<fractional> function, detailed below.
 
 =head2 fractional()
 
-  $z = Music::Duration::fractional('z', 5)
+  $z = Music::Duration::fractional( 'z', 5 )
 
 Add a fractional duration-division (or "tuple") for each note, to the
 L<MIDI::Simple> C<Length> hash.
@@ -73,10 +73,10 @@ lengths.
 
 sub fractional {
     # Get the new name and the division factor.
-    my ($name, $factor) = @_;
+    my ( $name, $factor ) = @_;
 
     # Add a named factor for each note value.
-    for my $n (keys %MIDI::Simple::Length) {
+    for my $n ( keys %MIDI::Simple::Length ) {
         # Skip durations longer than a single note.
         next if length $n > 2;
         # Add the fractional note value to the Lengths.
