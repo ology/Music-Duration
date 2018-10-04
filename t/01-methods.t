@@ -34,20 +34,21 @@ Music::Duration::fractional( 'z', 4 );
     zxn => '0.0625',
 );
 for my $i ( keys %expected ) {
-    is sprintf( '%.4f', $MIDI::Simple::Length{$i} ), $expected{$i}, $i;
+    is sprintf( '%.4f', $MIDI::Simple::Length{$i} ), $expected{$i}, "$i 4";
 }
 
-#Music::Duration::fractional('z', 5);
-#%expected = (
-#    zwn => '0.8000',
-#    zhn => '0.4000',
-#    zqn => '0.2000',
-#    zsn => '0.0500',
-#    zyn => '0.0250',
-#    zxn => '0.0125',
-#);
-#for my $i (keys %expected) {
-#    is sprintf( '%.4f', $MIDI::Simple::Length{$i} ), $expected{$i}, $i;
-#}
+Music::Duration::fractional( 'z', 5 );
+%expected = (
+    zwn => '5.0000',
+    zhn => '2.5000',
+    zqn => '1.2500',
+    zen => '0.6250',
+    zsn => '0.3125',
+    zyn => '0.1562',
+    zxn => '0.0781',
+);
+for my $i ( keys %expected ) {
+    is sprintf( '%.4f', $MIDI::Simple::Length{$i} ), $expected{$i}, "$i 5";
+}
 
 done_testing();
