@@ -72,7 +72,6 @@ lengths.
 =cut
 
 sub fractional {
-    # Get the new name and the division factor.
     my ( $name, $factor ) = @_;
 
     my $divisor = 1;
