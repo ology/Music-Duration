@@ -57,7 +57,7 @@ B<fractional> function, detailed below.
     }
 }
 
-=head1 FUNCTIONS
+=head1 FUNCTION
 
 =head2 fractional()
 
@@ -65,9 +65,6 @@ B<fractional> function, detailed below.
 
 Add a fractional duration-division (or "tuple") for each duration of the
 L<MIDI::Simple> C<Length> hash.
-
-In the example above, we add 5th note divisions called "z-notes" to the existing
-lengths.
 
 =cut
 
