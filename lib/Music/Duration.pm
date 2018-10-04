@@ -76,7 +76,6 @@ sub fractional {
     my ($name, $factor) = @_;
 
     # Add a named factor for each note value.
-
     for my $n (keys %MIDI::Simple::Length) {
         # Skip durations longer than a single note.
         next if length $n > 2;
@@ -90,8 +89,8 @@ __END__
 
 =head1 SEE ALSO
 
-L<MIDI> and L<MIDI::Simple>
+The "Parameters for n/r/noop" section in L<MIDI::Simple>
 
-The code in the C<t/> directory
+Also, the code in the C<t/> directory
 
 =cut
