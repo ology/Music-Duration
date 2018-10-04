@@ -1,9 +1,10 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
+
 use Test::More;
 
-require_ok('Music::Duration');
+use_ok 'Music::Duration';
 
 # Set the 32nd and 64th note durations.
 my %duration = (
