@@ -5,6 +5,7 @@ use warnings;
 use Test::More;
 
 use_ok 'Music::Duration';
+use Data::Dumper;$Data::Dumper::Sortkeys=1;warn Dumper\%MIDI::Simple::Length;exit;
 
 my %expected = (
     # 32nd
@@ -18,8 +19,8 @@ my %expected = (
     ddxn => '0.1094',
      txn => '0.0417',
 );
-for my $d ( keys %expected ) {
-    is sprintf( '%.4f', $MIDI::Simple::Length{$d} ), $expected{$d}, $d;
+for my $i ( keys %expected ) {
+    is sprintf( '%.4f', $MIDI::Simple::Length{$i} ), $expected{$i}, $i;
 }
 
 Music::Duration::fractional( 'z', 4 );
@@ -32,8 +33,8 @@ Music::Duration::fractional( 'z', 4 );
     zyn => '0.1250',
     zxn => '0.0625',
 );
-for my $d ( keys %expected ) {
-    is sprintf( '%.4f', $MIDI::Simple::Length{$d} ), $expected{$d}, $d;
+for my $i ( keys %expected ) {
+    is sprintf( '%.4f', $MIDI::Simple::Length{$i} ), $expected{$i}, $i;
 }
 
 #Music::Duration::fractional('z', 5);
@@ -45,8 +46,8 @@ for my $d ( keys %expected ) {
 #    zyn => '0.0250',
 #    zxn => '0.0125',
 #);
-#for my $d (keys %expected) {
-#    is sprintf( '%.4f', $MIDI::Simple::Length{$d} ), $expected{$d}, $d;
+#for my $i (keys %expected) {
+#    is sprintf( '%.4f', $MIDI::Simple::Length{$i} ), $expected{$i}, $i;
 #}
 
 done_testing();
