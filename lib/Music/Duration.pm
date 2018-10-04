@@ -11,17 +11,15 @@ use MIDI::Simple;
 =head1 SYNOPSIS
 
   # Compare:
-  > perl -MMIDI::Simple -MData::Dumper -e'print Dumper \%MIDI::Simple::Length'
-  > perl -MMusic::Duration -MData::Dumper -e'print Dumper \%MIDI::Simple::Length'
+  # perl -MMIDI::Simple -MData::Dumper -e'$Data::Dumper::Sortkeys=1; print Dumper \%MIDI::Simple::Length'
+  # perl -MMusic::Duration -MData::Dumper -e'$Data::Dumper::Sortkeys=1; print Dumper \%MIDI::Simple::Length'
 
   # In a program:
   use MIDI::Simple;
   use Music::Duration;
   Music::Duration::fractional('z', 5);
-  new_score();
-  patch_change(1, 33);          # Jazz kit
-  n('zsn', 'n38') for 1 .. 5;   # Snare sixteenth quintuplet
-  n('qn', 'n38');
+  # Create and set up a new_score, then for example:
+  n('zsn', 'n38') for 1 .. 5;   # Add a snare sixteenth quintuplet
 
 =head1 DESCRIPTION
 
@@ -29,7 +27,7 @@ This module adds thirty-second and sixty-fourth note divisions to
 L<MIDI::Simple>.  (These are 32nd: y, dy, ddy, ty and 64th: x, dx, ddx, tx.)
 
 Also, this module allows the addition of non-standard note divisions with the
-B<fractional> function, below.
+B<fractional> function, detailed below.
 
 =cut
 
@@ -65,8 +63,8 @@ B<fractional> function, below.
 
   $z = Music::Duration::fractional('z', 5)
 
-Add a fractional duration-division for each note, to the L<MIDI::Simple>
-C<Length> hash.
+Add a fractional duration-division (or "tuple") for each note, to the
+L<MIDI::Simple> C<Length> hash.
 
 In the example above, we add 5th note divisions called "z-notes" to the existing
 lengths.
@@ -89,14 +87,6 @@ sub fractional {
 
 1;
 __END__
-
-=head1 TO DO
-
-Decouple from L<MIDI> and provide a subroutine of lengths.
-
-Allow addition of any literal or coderef entry to the C<Length> hash.
-
-Only require L<MIDI::Simple> and set the C<Length> hash if present.
 
 =head1 SEE ALSO
 
