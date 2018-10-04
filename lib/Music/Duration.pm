@@ -42,15 +42,15 @@ B<fractional> function, detailed below.
 
         # Compute the note duration.
         $MIDI::Simple::Length{$n} = $duration eq $last
-            ? 4 : $MIDI::Simple::Length{$last . 'n'} / 2;
+            ? 4 : $MIDI::Simple::Length{ $last . 'n' } / 2;
         # Compute the dotted duration.
-        $MIDI::Simple::Length{'d'  . $n} = $MIDI::Simple::Length{$n}
+        $MIDI::Simple::Length{ 'd'  . $n } = $MIDI::Simple::Length{$n}
             + $MIDI::Simple::Length{$n} / 2;
         # Compute the double-dotted duration.
-        $MIDI::Simple::Length{'dd' . $n} = $MIDI::Simple::Length{'d' . $n}
+        $MIDI::Simple::Length{ 'dd' . $n } = $MIDI::Simple::Length{'d' . $n}
             + $MIDI::Simple::Length{$n} / 4;
         # Compute triplet duration.
-        $MIDI::Simple::Length{'t'  . $n} = $MIDI::Simple::Length{$n} / 3 * 2;
+        $MIDI::Simple::Length{ 't'  . $n } = $MIDI::Simple::Length{$n} / 3 * 2;
 
         # Increment the last duration seen.
         $last = $duration;
