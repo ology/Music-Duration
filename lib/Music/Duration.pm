@@ -61,7 +61,7 @@ B<fractional> function, detailed below.
 
 =head2 fractional()
 
-  $z = Music::Duration::fractional( 'z', 5 )
+  Music::Duration::fractional( 'z', 5 )
 
 Add a fractional duration-division (or "tuple") for each duration of the
 L<MIDI::Simple> C<Length> hash.
