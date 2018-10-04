@@ -57,14 +57,19 @@ B<fractional> function, detailed below.
     }
 }
 
-=head1 FUNCTION
+=head1 FUNCTIONS
 
 =head2 fractional()
 
   Music::Duration::fractional( 'z', 5 )
 
-Add a fractional duration-division (or "tuple") for each duration of the
-L<MIDI::Simple> C<Length> hash.
+Add a fractional division for each duration of the L<MIDI::Simple> C<Length>
+hash.
+
+For the example of 5 divisions, this means that a whole note is 5 beats long.
+The duration for each division is "half as long as the last."  So a half note is
+2 beats long, and a quarter note is, you guessed it - 1.  See the distribution
+test for the full breakdown.
 
 =cut
 
@@ -77,6 +82,13 @@ sub fractional {
         $MIDI::Simple::Length{ $name . $d . 'n' } = $factor / $divisor;
         $divisor *= 2;
     }
+}
+
+=head2 tuple
+
+=cut
+
+sub tuple {
 }
 
 1;
