@@ -2,6 +2,7 @@ Revision history for Music-Duration
 
 {{$NEXT}}
     - Improved documentation.
+    - Fixed the broken fractional() function.
 
 0.0301 2014-08-30 09:33:39-04:00 America/New_York
     - Improved abstract.
