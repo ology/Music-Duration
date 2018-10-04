@@ -86,6 +86,6 @@ __END__
 
 The "Parameters for n/r/noop" section in L<MIDI::Simple>
 
-Also, the code in the C<t/> directory
+The code in the C<t/> directory
 
 =cut
