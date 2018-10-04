@@ -62,6 +62,7 @@ B<fractional> function, detailed below.
 =head2 fractional()
 
   Music::Duration::fractional( 'z', 5 )
+  # Then: $score->n( 'zqn', ... );
 
 Add a fractional division for each duration of the L<MIDI::Simple> C<Length>
 hash.
@@ -84,11 +85,22 @@ sub fractional {
     }
 }
 
-=head2 tuple
+=head2 tuple()
+
+  Music::Duration::tuple( 'wn', 'z', 5 );
+  # Then: $score->n( 'zwn', ... );
+
+Add a fractional division for a given B<duration> of the L<MIDI::Simple>
+C<Length> hash.
+
+Musically, this creates a "cluster" of notes in place of the given B<duration>.
+
+So instead of a whole note of four beats, we instead play 5 notes.
 
 =cut
 
 sub tuple {
+    my ( $duration, $name, $factor ) = @_;
 }
 
 1;
