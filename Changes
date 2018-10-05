@@ -1,6 +1,9 @@
 Revision history for Music-Duration
 
 {{$NEXT}}
+    - Improved test.
+
+0.0503 2018-10-05 09:36:27
     - Improved documentation.
     - Repaired test.
 
