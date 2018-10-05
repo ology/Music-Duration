@@ -2,7 +2,7 @@ package Music::Duration;
 
 # ABSTRACT: Add 32nd, 64th, fractional and tuple durations to MIDI-Perl
 
-our $VERSION = '0.0502';
+our $VERSION = '0.0503';
 use strict;
 use warnings;
 
@@ -26,7 +26,7 @@ use MIDI::Simple;
 =head1 DESCRIPTION
 
 This module adds thirty-second and sixty-fourth note divisions to
-L<MIDI::Simple>.  (These are 32nd: y, dy, ddy, ty and 64th: x, dx, ddx, tx.)
+L<MIDI::Simple>.  These are 32nd: yn, dyn, ddyn, tyn and 64th: xn, dxn, ddxn, txn.
 
 Also, this module allows the addition of non-standard note divisions with the
 B<fractional()> and B<tuple()> functions, detailed below.
@@ -66,8 +66,18 @@ B<fractional()> and B<tuple()> functions, detailed below.
   Music::Duration::fractional( 'z', 5 )
   # Then: $score->n( 'zqn', ... );
 
-Add a fractional division for each duration of the L<MIDI::Simple> C<Length>
-hash.
+Add a fractional division to the L<MIDI::Simple> C<Length> hash.  This allows
+the use of a time signature that is not 4/4 or 3/4.
+
+For a given name of 'z', this function adds the following durations:
+
+  zwn
+  zhn
+  zqn
+  zen
+  zsn
+  zyn
+  zxn
 
 For the example of 5 divisions, this means that a whole note is 5 beats long.
 The duration for each division is "half as long as the last."  So a half note is
@@ -109,6 +119,9 @@ sub tuple {
 
 1;
 __END__
+=head1 TO DO
+
+Add dot, double-dot and triplet to the fractional durations.
 
 =head1 SEE ALSO
 
