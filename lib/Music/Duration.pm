@@ -17,11 +17,14 @@ use MIDI::Simple;
   # In a program:
   use MIDI::Simple;
   use Music::Duration;
+
+  # Create and set up a new_score...
+
   Music::Duration::fractional('z', 5);
-  # Create and set up a new_score, then for example:
-  n('zsn', 'n38') for 1 .. 5;
+  n('zsn', 'n38') for 1 .. 4; # 4 sixteenth snares in bars of 5 notes
+
   Music::Duration::tuple( 'qn', 'z', 5 );
-  n('zqn', 'n38') for 1 .. 5;
+  n('zqn', 'n38') for 1 .. 5; # 5 snares in place of a standard quarter note
 
 =head1 DESCRIPTION
 
@@ -68,20 +71,18 @@ B<fractional()> and B<tuple()> functions, detailed below.
 
 Add a fractional division to the L<MIDI::Simple> C<Length> hash.
 
-For a given name of 'z', this function adds the following durations:
+For the given example of C<z5>, this function adds the following durations:
 
-  zwn
-  zhn
-  zqn
-  zen
-  zsn
-  zyn
-  zxn
+  zwn = 5
+  zhn = 2.5
+  zqn = 1.25
+  zen = 0.625
+  zsn = 0.3125
+  zyn = 0.15625
+  zxn = 0.078125
 
-For the example of 5 divisions, this means that a whole note is 5 beats long.
-The duration for each division is "half as long as the last."  So a half note is
-2.5 beats long, and a quarter note is, you guessed it - 1.25.  See the
-distribution test for the full breakdown.
+This means that a whole note is 5 beats long, and the duration for each
+subsequent division is "half as long as the last."
 
 =cut
 
