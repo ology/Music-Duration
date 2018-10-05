@@ -2,7 +2,7 @@ package Music::Duration;
 
 # ABSTRACT: Add 32nd, 64th, fractional and tuple durations to MIDI-Perl
 
-our $VERSION = '0.0504';
+our $VERSION = '0.0505';
 use strict;
 use warnings;
 
