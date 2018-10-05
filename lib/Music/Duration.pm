@@ -1,8 +1,8 @@
 package Music::Duration;
 
-# ABSTRACT: Add 32nd, 64th, fractional and tuple durations to MIDI-Perl
+# ABSTRACT: Add 32nd, 64th and tuple durations to MIDI-Perl
 
-our $VERSION = '0.0505';
+our $VERSION = '0.0600';
 use strict;
 use warnings;
 
@@ -19,9 +19,6 @@ use MIDI::Simple;
   use Music::Duration;
 
   # Create and set up a new_score...
-
-  Music::Duration::fractional('z', 5);
-  n('zsn', 'n38') for 1 .. 4; # 4 sixteenth snares in bars of 5 notes
 
   Music::Duration::tuple( 'qn', 'z', 5 );
   n('zqn', 'n38') for 1 .. 5; # 5 snares in place of a standard quarter note
@@ -62,40 +59,7 @@ B<fractional()> and B<tuple()> functions, detailed below.
     }
 }
 
-=head1 FUNCTIONS
-
-=head2 fractional()
-
-  Music::Duration::fractional( 'z', 5 )
-  # Then: $score->n( 'zqn', ... );
-
-Add a length set to the L<MIDI::Simple> C<Length> hash.
-
-For the given example of C<z5>, this function adds the following durations:
-
-  zwn = 5
-  zhn = 2.5
-  zqn = 1.25
-  zen = 0.625
-  zsn = 0.3125
-  zyn = 0.15625
-  zxn = 0.078125
-
-This means that a whole note is 5 beats long, and the duration for each
-subsequent division is "half as long as the last."
-
-=cut
-
-sub fractional {
-    my ( $name, $factor ) = @_;
-
-    my $divisor = 1;
-
-    for my $d (qw( w h q e s y x )) {
-        $MIDI::Simple::Length{ $name . $d . 'n' } = $factor / $divisor;
-        $divisor *= 2;
-    }
-}
+=head1 FUNCTION
 
 =head2 tuple()
 
@@ -119,9 +83,6 @@ sub tuple {
 
 1;
 __END__
-=head1 TO DO
-
-Add dot, double-dot and triplet to the fractional durations.
 
 =head1 SEE ALSO
 

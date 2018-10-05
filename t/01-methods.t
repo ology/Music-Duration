@@ -23,34 +23,6 @@ for my $i ( keys %expected ) {
     is sprintf( '%.4f', $MIDI::Simple::Length{$i} ), $expected{$i}, $i;
 }
 
-Music::Duration::fractional( 'z', 4 );
-%expected = (
-    zwn => $MIDI::Simple::Length{wn},
-    zhn => $MIDI::Simple::Length{hn},
-    zqn => $MIDI::Simple::Length{qn},
-    zen => $MIDI::Simple::Length{en},
-    zsn => $MIDI::Simple::Length{sn},
-    zyn => $MIDI::Simple::Length{yn},
-    zxn => $MIDI::Simple::Length{xn},
-);
-for my $i ( keys %expected ) {
-    is $MIDI::Simple::Length{$i}, $expected{$i}, "$i 4";
-}
-
-Music::Duration::fractional( 'z', 5 );
-%expected = (
-    zwn => 5,
-    zhn => 2.5,
-    zqn => 1.25,
-    zen => 0.625,
-    zsn => 0.3125,
-    zyn => 0.15625,
-    zxn => 0.078125,
-);
-for my $i ( keys %expected ) {
-    is $MIDI::Simple::Length{$i}, $expected{$i}, "$i 5";
-}
-
 Music::Duration::tuple( 'qn', 'z', 3 );
 is $MIDI::Simple::Length{zqn}, $MIDI::Simple::Length{ten}, 'zqn = ten';
 
