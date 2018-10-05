@@ -69,7 +69,7 @@ B<fractional()> and B<tuple()> functions, detailed below.
   Music::Duration::fractional( 'z', 5 )
   # Then: $score->n( 'zqn', ... );
 
-Add a fractional division to the L<MIDI::Simple> C<Length> hash.
+Add a length set to the L<MIDI::Simple> C<Length> hash.
 
 For the given example of C<z5>, this function adds the following durations:
 
