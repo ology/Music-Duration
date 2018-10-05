@@ -66,8 +66,7 @@ B<fractional()> and B<tuple()> functions, detailed below.
   Music::Duration::fractional( 'z', 5 )
   # Then: $score->n( 'zqn', ... );
 
-Add a fractional division to the L<MIDI::Simple> C<Length> hash.  This allows
-the use of a time signature that is not 4/4 or 3/4.
+Add a fractional division to the L<MIDI::Simple> C<Length> hash.
 
 For a given name of 'z', this function adds the following durations:
 
