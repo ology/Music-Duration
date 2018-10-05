@@ -2,7 +2,7 @@ package Music::Duration;
 
 # ABSTRACT: Add 32nd, 64th and tuple durations to MIDI-Perl
 
-our $VERSION = '0.0600';
+our $VERSION = '0.0601';
 use strict;
 use warnings;
 
@@ -26,10 +26,11 @@ use MIDI::Simple;
 =head1 DESCRIPTION
 
 This module adds thirty-second and sixty-fourth note divisions to
-L<MIDI::Simple>.  These are 32nd: yn, dyn, ddyn, tyn and 64th: xn, dxn, ddxn, txn.
+L<MIDI::Simple>.  These are 32nd: yn, dyn, ddyn, tyn and 64th: xn, dxn, ddxn,
+txn.
 
 Also, this module allows the addition of non-standard note divisions with the
-B<fractional()> and B<tuple()> functions, detailed below.
+B<tuple()> function.
 
 =cut
 
@@ -86,7 +87,8 @@ __END__
 
 =head1 SEE ALSO
 
-The "Parameters for n/r/noop" section in L<MIDI::Simple>
+The description of the C<Length> hash in the "Parameters for n/r/noop" section
+in L<MIDI::Simple>
 
 The code in the C<t/> directory
 
