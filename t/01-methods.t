@@ -39,24 +39,23 @@ for my $i ( keys %expected ) {
 
 Music::Duration::fractional( 'z', 5 );
 %expected = (
-    zwn => '5.0000',
-    zhn => '2.5000',
-    zqn => '1.2500',
-    zen => '0.6250',
-    zsn => '0.3125',
-    zyn => '0.1562',
-    zxn => '0.0781',
+    zwn => '5.00000',
+    zhn => '2.50000',
+    zqn => '1.25000',
+    zen => '0.62500',
+    zsn => '0.31250',
+    zyn => '0.15625',
+    zxn => '0.07812',
 );
 for my $i ( keys %expected ) {
-    is sprintf( '%.4f', $MIDI::Simple::Length{$i} ), $expected{$i}, "$i 5";
+    is sprintf( '%.5f', $MIDI::Simple::Length{$i} ), $expected{$i}, "$i 5";
 }
 
 Music::Duration::tuple( 'qn', 'z', 3 );
-my $expected = 1 / 3;
-is $MIDI::Simple::Length{zqn}, $expected, 'zqn = ten';
+is $MIDI::Simple::Length{zqn}, $MIDI::Simple::Length{ten}, 'zqn = ten';
 
 Music::Duration::tuple( 'wn', 'z', 5 );
-$expected = 4 / 5;
+my $expected = 4 / 5;
 is $MIDI::Simple::Length{zwn}, $expected, 'zwn 5-tuple';
 
 done_testing();
