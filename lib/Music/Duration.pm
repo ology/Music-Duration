@@ -2,7 +2,7 @@ package Music::Duration;
 
 # ABSTRACT: Add 32nd, 64th and tuple durations to MIDI-Perl
 
-our $VERSION = '0.0601';
+our $VERSION = '0.0602';
 use strict;
 use warnings;
 
@@ -18,19 +18,25 @@ use MIDI::Simple;
   use MIDI::Simple;
   use Music::Duration;
 
-  my $black_page = MIDI::Simple->new_score();
-
   Music::Duration::tuple( 'ten', 'z', 5 );
-  n('zten', 'n38') for 1 .. 5; # 5 snares in place of a standard eighth note triplet
+
+  my $black_page = MIDI::Simple->new_score();
+  # ...
+  n( 'zten', 'n38' ) for 1 .. 5; # 5 snares in place of an eighth note triplet
 
 =head1 DESCRIPTION
 
 This module adds thirty-second and sixty-fourth note divisions to
-L<MIDI::Simple>.  These are 32nd: yn, dyn, ddyn, tyn and 64th: xn, dxn, ddxn,
-txn.
+L<MIDI::Simple>.  It also adds fractional note divisions with the B<tuple()>
+function.
 
-Also, this module allows the addition of non-standard note divisions with the
-B<tuple()> function.
+32nd durations added:
+
+  yn dyn ddyn tyn
+
+64th durations added:
+
+  xn dxn ddxn txn
 
 =cut
 
@@ -46,12 +52,15 @@ B<tuple()> function.
         # Compute the note duration.
         $MIDI::Simple::Length{$n} = $duration eq $last
             ? 4 : $MIDI::Simple::Length{ $last . 'n' } / 2;
+
         # Compute the dotted duration.
         $MIDI::Simple::Length{ 'd'  . $n } = $MIDI::Simple::Length{$n}
             + $MIDI::Simple::Length{$n} / 2;
+
         # Compute the double-dotted duration.
         $MIDI::Simple::Length{ 'dd' . $n } = $MIDI::Simple::Length{'d' . $n}
             + $MIDI::Simple::Length{$n} / 4;
+
         # Compute triplet duration.
         $MIDI::Simple::Length{ 't'  . $n } = $MIDI::Simple::Length{$n} / 3 * 2;
 
@@ -64,16 +73,21 @@ B<tuple()> function.
 
 =head2 tuple()
 
+  Music::Duration::tuple( 'qn', 'z', 5 );
+  # $score->n( 'zqn', ... );
   Music::Duration::tuple( 'wn', 'z', 5 );
-  # Then: $score->n( 'zwn', ... );
+  # $score->n( 'zwn', ... );
 
-Add a fractional division for a given B<duration> of the L<MIDI::Simple>
-C<Length> hash.
+Add a fractional division to the L<MIDI::Simple> C<Length> hash for a given
+B<name> and B<duration>.
 
 Musically, this creates a "cluster" of notes in place of the given B<duration>.
 
-So instead of a whole note of four beats, we instead play 5 beats.  A triplet is
-a 3-tuple.
+A triplet is a 3-tuple.
+
+So in the first example, instead of a quarter note, we instead play 5 beats - a
+5-tuple.  In the second, instead of a whole note (of four beats), we instead
+play 5 beats.
 
 =cut
 
@@ -87,8 +101,7 @@ __END__
 
 =head1 SEE ALSO
 
-The description of the C<Length> hash in the "Parameters for n/r/noop" section
-in L<MIDI::Simple>
+The C<Length> hash in L<MIDI::Simple>
 
 The code in the C<t/> directory
 
