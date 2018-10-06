@@ -18,11 +18,11 @@ use MIDI::Simple;
   use MIDI::Simple;
   use Music::Duration;
 
-  Music::Duration::tuple( 'ten', 'z', 5 );
+  Music::Duration::tuple( 'ten', 'z', 5 ); # 5 notes in place of an eighth note triplet
 
   my $black_page = MIDI::Simple->new_score();
   # ...
-  n( 'zten', 'n38' ) for 1 .. 5; # 5 snares in place of an eighth note triplet
+  n( 'zten', 'n38' ) for 1 .. 5;
 
 =head1 DESCRIPTION
 
