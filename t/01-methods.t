@@ -9,18 +9,18 @@ use_ok 'Music::Duration';
 
 my %expected = (
     # 32nd
-      yn => '0.1250',
-     dyn => '0.1875',
-    ddyn => '0.2188',
-     tyn => '0.0833',
+      yn => '0.12500',
+     dyn => '0.18750',
+    ddyn => '0.21875',
+     tyn => '0.08333',
     # 64th
-      xn => '0.0625',
-     dxn => '0.0938',
-    ddxn => '0.1094',
-     txn => '0.0417',
+      xn => '0.06250',
+     dxn => '0.09375',
+    ddxn => '0.10938',
+     txn => '0.04167',
 );
 for my $i ( keys %expected ) {
-    is sprintf( '%.4f', $MIDI::Simple::Length{$i} ), $expected{$i}, $i;
+    is sprintf( '%.5f', $MIDI::Simple::Length{$i} ), $expected{$i}, $i;
 }
 
 Music::Duration::tuple( 'qn', 'z', 3 );
