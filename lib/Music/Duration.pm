@@ -18,10 +18,10 @@ use MIDI::Simple;
   use MIDI::Simple;
   use Music::Duration;
 
-  # Create and set up a new_score...
+  my $black_page = MIDI::Simple->new_score();
 
-  Music::Duration::tuple( 'qn', 'z', 5 );
-  n('zqn', 'n38') for 1 .. 5; # 5 snares in place of a standard quarter note
+  Music::Duration::tuple( 'ten', 'z', 5 );
+  n('zten', 'n38') for 1 .. 5; # 5 snares in place of a standard eighth note triplet
 
 =head1 DESCRIPTION
 
@@ -91,5 +91,7 @@ The description of the C<Length> hash in the "Parameters for n/r/noop" section
 in L<MIDI::Simple>
 
 The code in the C<t/> directory
+
+L<https://www.scribd.com/doc/26974069/Frank-Zappa-The-Black-Page-1-Melody-Score>
 
 =cut
