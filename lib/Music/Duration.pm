@@ -2,7 +2,7 @@ package Music::Duration;
 
 # ABSTRACT: Add 32nd, 64th and tuplet durations to MIDI-Perl
 
-our $VERSION = '0.0604';
+our $VERSION = '0.0605';
 use strict;
 use warnings;
 
@@ -18,7 +18,7 @@ use MIDI::Simple;
   use MIDI::Simple;
   use Music::Duration;
 
-  Music::Duration::tuplet( 'ten', 'z', 5 ); # 5 notes in place of an eighth note triplet
+  Music::Duration::tuplet( 'ten', 'z', 5 ); # 5 divisions in place of an eighth note triplet
 
   my $black_page = MIDI::Simple->new_score();
   # ...
@@ -27,16 +27,22 @@ use MIDI::Simple;
 =head1 DESCRIPTION
 
 This module adds thirty-second and sixty-fourth note divisions to
-L<MIDI::Simple>.  It also adds fractional note divisions with the B<tuplet()>
-function.
+L<MIDI::Simple> C<%Length>.  It also adds fractional note divisions with the
+B<tuplet()> function.
 
 32nd durations added:
 
-  yn dyn ddyn tyn
+  yn:   thirty-second note
+  dyn:  dotted thirty-second note
+  ddyn: double dotted thirty-second note
+  tyn:  thirty-second note triplet
 
 64th durations added:
 
-  xn dxn ddxn txn
+  xn:   sixty-fourth note
+  dxn:  dotted sixty-fourth note
+  ddxn: double dotted sixty-fourth note
+  txn:  sixty-fourth note triplet
 
 =cut
 
@@ -74,7 +80,7 @@ function.
 
   Music::Duration::tuplet( 'qn', 'z', 5 );
   # $score->n( 'zqn', ... );
-  Music::Duration::tuplet( 'wn', 'z', 5 );
+  Music::Duration::tuplet( 'wn', 'z', 7 );
   # $score->n( 'zwn', ... );
 
 Add a fractional division to the L<MIDI::Simple> C<Length> hash for a given
@@ -86,7 +92,7 @@ A triplet is a 3-tuplet.
 
 So in the first example, instead of a quarter note, we instead play 5 beats - a
 5-tuple.  In the second, instead of a whole note (of four beats), we instead
-play 5 beats.
+play 7 beats.
 
 =cut
 
@@ -108,7 +114,7 @@ __END__
 
 =head1 SEE ALSO
 
-The C<Length> hash in L<MIDI::Simple>
+The C<%Length> hash in L<MIDI::Simple>
 
 The code in the F<eg/> and F<t/> directories
 
