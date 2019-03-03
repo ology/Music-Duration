@@ -1,8 +1,12 @@
 Revision history for Music-Duration
 
 {{$NEXT}}
-    - Remove unneeded code.
-    - Improve documentation.
+    - Added a synonym for the tuple() function - tuplet().
+    - Attempted to code The Black Page in eg/.
+
+0.0603 2019-03-03 01:56:44
+    - Removed unneeded code.
+    - Improved documentation.
 
 0.0602 2018-10-05 21:06:11
     - Improved documentation.
