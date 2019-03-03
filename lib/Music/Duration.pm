@@ -110,8 +110,10 @@ __END__
 
 The C<Length> hash in L<MIDI::Simple>
 
-The code in the C<t/> directory
+The code in the F<eg/> and F<t/> directories
 
 L<https://www.scribd.com/doc/26974069/Frank-Zappa-The-Black-Page-1-Melody-Score>
+
+L<https://en.wikipedia.org/wiki/Tuplet>
 
 =cut
