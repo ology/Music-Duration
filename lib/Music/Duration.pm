@@ -2,7 +2,7 @@ package Music::Duration;
 
 # ABSTRACT: Add 32nd, 64th and tuple durations to MIDI-Perl
 
-our $VERSION = '0.0602';
+our $VERSION = '0.0603';
 use strict;
 use warnings;
 
@@ -22,7 +22,7 @@ use MIDI::Simple;
 
   my $black_page = MIDI::Simple->new_score();
   # ...
-  n( 'zten', 'n38' ) for 1 .. 5;
+  $black_page->n( 'zten', 'n38' ) for 1 .. 5;
 
 =head1 DESCRIPTION
 
@@ -49,19 +49,18 @@ function.
         # Create a MIDI::Simple format note identifier.
         my $n = $duration . 'n';
 
-        # Compute the note duration.
-        $MIDI::Simple::Length{$n} = $duration eq $last
-            ? 4 : $MIDI::Simple::Length{ $last . 'n' } / 2;
+        # Compute the note duration, which is half of the previous.
+        $MIDI::Simple::Length{$n} = $MIDI::Simple::Length{ $last . 'n' } / 2;
 
         # Compute the dotted duration.
         $MIDI::Simple::Length{ 'd'  . $n } = $MIDI::Simple::Length{$n}
             + $MIDI::Simple::Length{$n} / 2;
 
         # Compute the double-dotted duration.
-        $MIDI::Simple::Length{ 'dd' . $n } = $MIDI::Simple::Length{'d' . $n}
+        $MIDI::Simple::Length{ 'dd' . $n } = $MIDI::Simple::Length{ 'd' . $n }
             + $MIDI::Simple::Length{$n} / 4;
 
-        # Compute triplet duration.
+        # Compute the triplet duration.
         $MIDI::Simple::Length{ 't'  . $n } = $MIDI::Simple::Length{$n} / 3 * 2;
 
         # Increment the last duration seen.
