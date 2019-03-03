@@ -23,7 +23,7 @@ $score->n( 'den', 'E5' );
 $score->n( 'en', 'A5' );
 $score->n( 'sn', 'Fs5' );
 
-Music::Duration::tuple( 'hn', 'z', 5 );
+Music::Duration::tuplet( 'hn', 'z', 5 );
 
 $score->n( 'tsn', 'G5' );
 $score->n( 'tsn', 'C5' );
@@ -43,8 +43,8 @@ $score->n( 'yn', 'D4' );
 $score->n( 'yn', 'G5' );
 $score->n( 'dhn', 'E4' );
 
-Music::Duration::tuple( 'en', 'z', 5 );
-Music::Duration::tuple( 'qn', 'z', 7 );
+Music::Duration::tuplet( 'en', 'z', 5 );
+Music::Duration::tuplet( 'qn', 'z', 7 );
 
 $score->n( 'yn', 'C4' );
 $score->n( 'yn', 'E4' );
