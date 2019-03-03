@@ -1,6 +1,6 @@
 package Music::Duration;
 
-# ABSTRACT: Add 32nd, 64th and tuple durations to MIDI-Perl
+# ABSTRACT: Add 32nd, 64th and tuplet durations to MIDI-Perl
 
 our $VERSION = '0.0604';
 use strict;
