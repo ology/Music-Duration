@@ -2,20 +2,20 @@ package Music::Duration;
 
 # ABSTRACT: Add 32nd, 64th, 128th and tuplet durations to MIDI-Perl
 
-our $VERSION = '0.0700';
 use strict;
 use warnings;
 
 use MIDI::Simple;
 
+our $VERSION = '0.0701';
+
 =head1 SYNOPSIS
 
-  # Compare:
-  # perl -MMIDI::Simple -MData::Dumper -e'$Data::Dumper::Sortkeys=1; print Dumper \%MIDI::Simple::Length'
-  # perl -MMusic::Duration -MData::Dumper -e'$Data::Dumper::Sortkeys=1; print Dumper \%MIDI::Simple::Length'
+  # Compare lengths:
+  # perl -MMIDI::Simple -MData::Dumper -e '%x = %MIDI::Simple::Length; print Dumper [ map { "$_ => $x{$_}" } sort { $x{$a} <=> $x{$b} } keys %x ]'
+  # perl -MMusic::Duration -MData::Dumper -e '%x = %MIDI::Simple::Length; print Dumper [ map { "$_ => $x{$_}" } sort { $x{$a} <=> $x{$b} } keys %x ]'
 
   # In a program:
-  use MIDI::Simple;
   use Music::Duration;
 
   Music::Duration::tuplet( 'ten', 'z', 5 ); # 5 divisions in place of an eighth note triplet
