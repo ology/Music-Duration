@@ -1,6 +1,9 @@
 Revision history for Music-Duration
 
 {{$NEXT}}
+    - Improved documentation.
+
+0.0700 2019-08-25 01:51:42
     - Added the 128th note duration, because... why not.
 
 0.0605 2019-03-03 13:33:21
