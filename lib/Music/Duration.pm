@@ -7,7 +7,7 @@ use warnings;
 
 use MIDI::Simple;
 
-our $VERSION = '0.0701';
+our $VERSION = '0.0702';
 
 =head1 SYNOPSIS
 
