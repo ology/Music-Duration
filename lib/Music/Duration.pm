@@ -11,12 +11,10 @@ our $VERSION = '0.0702';
 
 =head1 SYNOPSIS
 
-  # Compare available lengths:
-  # perl -MMIDI::Simple -MData::Dumper -e '%x = %MIDI::Simple::Length; print Dumper [ map { "$_ => $x{$_}" } sort { $x{$a} <=> $x{$b} } keys %x ]'
-  # perl -MMusic::Duration -MData::Dumper -e '%x = %MIDI::Simple::Length; print Dumper [ map { "$_ => $x{$_}" } sort { $x{$a} <=> $x{$b} } keys %x ]'
-
-  # In a program:
   use Music::Duration;
+
+  my %x = %MIDI::Simple::Length;
+  print Dumper [ map { "$_ => $x{$_}" } sort { $x{$a} <=> $x{$b} } keys %x ];
 
   Music::Duration::tuplet( 'ten', 'z', 5 ); # 5 divisions in place of an eighth note triplet
 
