@@ -83,7 +83,7 @@ with the B<tuplet()> function.
     }
 }
 
-=head1 FUNCTION
+=head1 FUNCTIONS
 
 =head2 tuple, tuplet
 
