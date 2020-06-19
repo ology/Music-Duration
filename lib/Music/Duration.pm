@@ -29,10 +29,10 @@ our $VERSION = '0.0800';
 
 =head1 DESCRIPTION
 
-This module adds 32nd, 64th, and 128th note divisions to
-C<%MIDI::Simple::Length>.  It also computes and inserts a fractional
-note division of an existing duration.  Additionally, this module will
-insert any named note duration to the length hash.
+This module adds 32nd, 64th, and 128th triplet and dotted note
+divisions to C<%MIDI::Simple::Length>.  It also computes and inserts a
+fractional note division of an existing duration.  Additionally, this
+module will insert any named note duration to the length hash.
 
 32nd durations added:
 
