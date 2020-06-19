@@ -22,6 +22,10 @@ our $VERSION = '0.0702';
   # ...
   $black_page->n( 'zten', 'n38' ) for 1 .. 5;
 
+  Music::Duration::add_duration( phi => 1.618 );
+  # ...
+  $black_page->n( 'phi', 'n38' ) for 1 .. 4;
+
 =head1 DESCRIPTION
 
 This module adds 32nd, 64th, and 128th note divisions to
@@ -109,6 +113,15 @@ sub tuplet {
 }
 
 sub tuple { tuplet(@_) }
+
+=head2 add_duration
+
+=cut
+
+sub add_duration {
+    my ( $name, $duration ) = @_;
+    $MIDI::Simple::Length{ $name } = $duration;
+}
 
 1;
 __END__
