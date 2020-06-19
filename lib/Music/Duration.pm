@@ -116,6 +116,11 @@ sub tuple { tuplet(@_) }
 
 =head2 add_duration
 
+  Music::Duration::add_duration( $name => $duration );
+
+This simple function just adds a named duration length to
+C<%MIDI::Simple::Length>.
+
 =cut
 
 sub add_duration {
