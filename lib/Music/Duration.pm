@@ -30,8 +30,9 @@ our $VERSION = '0.0800';
 =head1 DESCRIPTION
 
 This module adds 32nd, 64th, and 128th note divisions to
-L<MIDI::Simple> C<%Length>.  It also adds fractional note divisions
-with the B<tuplet()> function.
+C<%MIDI::Simple::Length>.  It also adds fractional note divisions of
+an existing duration.  In addition, this module will add any named
+note duration to the length hash.
 
 32nd durations added:
 
