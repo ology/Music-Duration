@@ -81,7 +81,7 @@ with the B<tuplet()> function.
 
 =head1 FUNCTION
 
-=head2 tuplet
+=head2 tuple, tuplet
 
   Music::Duration::tuplet( 'qn', 'z', 5 );
   # $score->n( 'zqn', ... );
@@ -107,12 +107,6 @@ sub tuplet {
     my ( $duration, $name, $factor ) = @_;
     $MIDI::Simple::Length{ $name . $duration } = $MIDI::Simple::Length{$duration} / $factor
 }
-
-=head2 tuple
-
-Synonym for the B<tuplet> function.
-
-=cut
 
 sub tuple { tuplet(@_) }
 
