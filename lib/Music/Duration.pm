@@ -118,8 +118,9 @@ sub tuple { tuplet(@_) }
 
   Music::Duration::add_duration( $name => $duration );
 
-This simple function just adds a named duration length to
-C<%MIDI::Simple::Length>.
+This simple function just adds a B<name>d B<duration> length to
+C<%MIDI::Simple::Length> so that it can be used to add notes or rests
+to the score.
 
 =cut
 
