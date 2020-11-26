@@ -5,9 +5,9 @@ package Music::Duration;
 use strict;
 use warnings;
 
-use MIDI::Simple;
+use MIDI::Simple ();
 
-our $VERSION = '0.0800';
+our $VERSION = '0.0801';
 
 =head1 SYNOPSIS
 
