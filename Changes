@@ -1,6 +1,7 @@
 Revision history for Music-Duration
 
 {{$NEXT}}
+    - Improve documentation.
 
 0.0801 2020-11-26 11:20:41
     - Don't import anything from MIDI::Simple.
