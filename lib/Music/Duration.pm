@@ -13,19 +13,22 @@ our $VERSION = '0.0801';
 
   use Music::Duration;
 
-  Music::Duration::tuplet( 'ten', 'z', 5 ); # 5 divisions in place of an eighth note triplet
+  # 5 divisions in place of an eighth note triplet:
+  Music::Duration::tuplet( 'ten', 'z', 5 );
 
-  my $black_page = MIDI::Simple->new_score();
-  # ...
-  $black_page->n( 'zten', 'n38' ) for 1 .. 5;
-
+  # Add an arbitrary duration:
   Music::Duration::add_duration( phi => 1.618 );
-  # ...
-  $black_page->n( 'phi', 'n38' ) for 1 .. 4;
 
   # Now inspect the known lengths:
   my %x = %MIDI::Simple::Length;
   print Dumper [ map { "$_ => $x{$_}" } sort { $x{$a} <=> $x{$b} } keys %x ];
+
+  # Use the new durations in a composition:
+  my $black_page = MIDI::Simple->new_score();
+  $black_page->Channel(9);
+  # ...
+  $black_page->n( 'zten', 'n38' ) for 1 .. 5;
+  $black_page->n( 'phi', 'n38' ) for 1 .. 4;
 
 =head1 DESCRIPTION
 
