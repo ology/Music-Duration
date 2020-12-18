@@ -32,7 +32,7 @@ our $VERSION = '0.0801';
 
 =head1 DESCRIPTION
 
-This module adds 32nd, 64th, and 128th triplet and dotted note
+This module adds 32nd, 64th, and 128th notes, triplet and dotted
 divisions to C<%MIDI::Simple::Length>.  It also computes and inserts a
 fractional note division of an existing duration.  Additionally, this
 module will insert any named note duration to the length hash.
@@ -104,7 +104,7 @@ given B<name> and B<duration>.
 Musically, this creates a series of notes in place of the given
 B<duration>.
 
-A triplet is a 3-tuplet.
+A triplet is a "3-tuplet."
 
 So in the first example, instead of a quarter note, we instead play 5
 beats - a 5-tuple.  In the second, instead of a whole note (of four
@@ -123,7 +123,7 @@ sub tuple { tuplet(@_) }
 
   Music::Duration::add_duration( $name => $duration );
 
-This simple function just adds a B<name>d B<duration> length to
+This function just adds a B<name>d B<duration> length to
 C<%MIDI::Simple::Length> so that it can be used to add notes or rests
 to the score.
 
@@ -139,9 +139,9 @@ __END__
 
 =head1 SEE ALSO
 
-The C<%Length> hash in L<MIDI::Simple>
+The code in F<t/01-functions.t> and F<eg/*> in this distribution
 
-The code in the F<eg/> and F<t/> directories
+The C<%Length> hash in L<MIDI::Simple>
 
 L<https://www.scribd.com/doc/26974069/Frank-Zappa-The-Black-Page-1-Melody-Score>
 
