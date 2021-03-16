@@ -6,11 +6,11 @@
 use strict;
 use warnings;
 
-use lib $ENV{HOME} . '/sandbox/MIDI-Util/lib';
-use MIDI::Util;
+use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw(MIDI-Util);
+use MIDI::Util qw(setup_score);
 use Music::Duration;
 
-my $score = MIDI::Util::setup_score( bpm => 60 );
+my $score = setup_score( bpm => 60 );
 
 $score->n( 'qn', 'B4' );
 $score->n( 'yn', 'Fs4' );
