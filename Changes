@@ -2,6 +2,7 @@ Revision history for Music-Duration
 
 {{$NEXT}}
     - Update the eg/ programs.
+    - Use x, y & z instead of y, x & o for 32nd, 64th & 128th notes.
 
 0.0802 2020-12-18 10:18:51
     - Improve documentation.
