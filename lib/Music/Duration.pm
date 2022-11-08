@@ -14,7 +14,7 @@ our $VERSION = '0.0900';
   use Music::Duration;
 
   # 5 divisions in place of an eighth note triplet:
-  Music::Duration::tuplet( 'ten', 'z', 5 );
+  Music::Duration::tuplet( 'ten', 'Z', 5 );
 
   # Add an arbitrary duration:
   Music::Duration::add_duration( phi => 1.618 );
@@ -27,8 +27,8 @@ our $VERSION = '0.0900';
   my $black_page = MIDI::Simple->new_score();
   $black_page->Channel(9);
   # ...
-  $black_page->n( 'zten', 'n38' ) for 1 .. 5;
-  $black_page->n( 'phi', 'n38' ) for 1 .. 4;
+  $black_page->n( 'Zten', 38 ) for 1 .. 5;
+  $black_page->n( 'phi', 38 ) for 1 .. 4;
 
 =head1 DESCRIPTION
 
