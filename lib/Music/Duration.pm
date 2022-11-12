@@ -92,11 +92,11 @@ module will insert any named note duration to the length hash.
 
 =head2 tuple, tuplet
 
-  Music::Duration::tuplet( 'qn', 'z', 5 );
-  # $score->n( 'zqn', ... );
+  Music::Duration::tuplet( 'qn', 'Z', 5 );
+  # $score->n( 'Zqn', ... );
 
-  Music::Duration::tuplet( 'wn', 'z', 7 );
-  # $score->n( 'zwn', ... );
+  Music::Duration::tuplet( 'wn', 'Z', 7 );
+  # $score->n( 'Zwn', ... );
 
 Add a fractional division to the L<MIDI::Simple> C<Length> hash for a
 given B<name> and B<duration>.
